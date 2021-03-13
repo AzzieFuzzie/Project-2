@@ -74,9 +74,12 @@ This function will create and insert/append the elements needed for the paginati
 */
 function addPagination(list){
 const numOfPages = Math.ceil(list.length / itemsPerPage) ;
-const linkList = document.querySelector('link-list');
-linkList.innerHTML ="";
+const linkList = document.querySelector('.link-list');
+linkList.innerHTML =" ";
+
 for(i=1; i <= numOfPages; i++ ){
+   let button = i
+      linkList.innerHTML += 
 `<li>
 <button type="button">1</button>
 </li>`
@@ -84,8 +87,9 @@ linkList.insertAdjacentHTML('beforeend','button' )
 const active = document.querySelector('button');
 active.className = 'active';
 }
+
 };
-addPagination(data);
+
 // linkList.addEventListener('click', () =>{
 // if(tagName === 'button'){
 // Button.className = 'active'
@@ -96,7 +100,7 @@ addPagination(data);
 
 showPage(data,1)
 
-
+addPagination(data);
 
 
    // let liPagination = document.createElement('li');
