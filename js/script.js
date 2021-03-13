@@ -59,34 +59,49 @@ for (let i = 0; i < list.length; i++ )
       spanDate.innerHTML = studentItem.registered.date
       divJoined.appendChild(spanDate)
       //studentList.insertAdjacentHTML('beforeend', studentItem)
-      console.log(studentList)
-      console.log(div)
-      console.log('Student', studentItem)
-      console.log(studentItem.name['first'])
+      // console.log(studentList)
+      // console.log(div)
+      // console.log('Student', studentItem)
+      // console.log(studentItem.name['first'])
    }
    
 }
 }
-showPage(data,1)
+
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 function addPagination(list){
-const button = 'list.length'
-const link = documeny.querySelector('.link-list');
-link.innerHTML ="";
-for(i=0;i <= 1;i++){
-   let liPagination = document.createElement('li');
-   li.appendChild('liPagination')
-   let buttonPagination = document.querySelector('button');
-   buttonPagination.type = 'buttton'
-   buttonPagination.innerHTML=1;
-   li.appendChild(buttonPagination);
+const numOfPages = Math.ceil(list.length / itemsPerPage) ;
+const linkList = document.querySelector('link-list');
+linkList.innerHTML ="";
+for(i=1; i <= numOfPages; i++ ){
+`<li>
+<button type="button">1</button>
+</li>`
+linkList.insertAdjacentHTML('beforeend','button' )
+const active = document.querySelector('button');
+active.className = 'active';
 }
 };
+addPagination(data);
+// linkList.addEventListener('click', () =>{
+// if(tagName === 'button'){
+// Button.className = 'active'
+// }
+// })
 
-addEventListener('click',(){
-   
-})
 // Call functions
+
+showPage(data,1)
+
+
+
+
+   // let liPagination = document.createElement('li');
+   // li.appendChild('liPagination')
+   // let buttonPagination = document.querySelector('button');
+   // buttonPagination.type = 'buttton'
+   // buttonPagination.innerHTML=1;
+   // li.appendChild(buttonPagination);
