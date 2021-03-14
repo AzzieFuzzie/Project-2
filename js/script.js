@@ -19,12 +19,12 @@ This function will create and insert/append the elements needed to display a "pa
 */
 
 
-const itemsPerPage = 9
+const itemsPerPage = 9;
 const showPage = (list, page) => {
-startIndex = (page * itemsPerPage) - itemsPerPage
-endIndex = page * itemsPerPage
-const studentList = document.querySelector('.student-list')
-studentList.innerHTML = ""
+startIndex = (page * itemsPerPage) - itemsPerPage;
+endIndex = page * itemsPerPage;
+const studentList = document.querySelector('.student-list');
+studentList.innerHTML = "";
 
 for (let i = 0; i < list.length; i++ )
 {
@@ -117,7 +117,6 @@ function searchBar() {
 // Call functions
 searchBar()
 showPage(data,1)
-
 addPagination(data);
 
 
