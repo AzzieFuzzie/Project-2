@@ -72,40 +72,52 @@ for (let i = 0; i < list.length; i++ )
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
-function addPagination(list){
-const numOfPages = Math.ceil(list.length / itemsPerPage) ;
-const linkList = document.querySelector('.link-list');
-linkList.innerHTML =" ";
 
-for(i=1; i <= numOfPages; i++ ){
-   let button = i
-      linkList.innerHTML += 
-`<li>
-<button type="button">1</button>
-</li>`
-linkList.insertAdjacentHTML('beforeend','button' )
-const active = document.querySelector('button');
-active.className = 'active';
+const addPagination = (list) => {
+   const numOfPages = Math.ceil(list.length/ itemsPerPage);
+   const linkList = document.querySelector('.link-list');
+   linkList.innerHTML = ""
+   
+   for (let i = 1; i <= numOfPages; i++) {
+      let button = i
+      linkList.innerHTML += `
+      <li>
+      <button type="button">${button}</button>
+      </li>`
+   }
+   const activePage = document.querySelector('button');
+   activePage.className = 'active';
+   
+   linkList.addEventListener('click', (e) => {
+         
+      if (e.target.tagName === 'BUTTON') {
+            document.querySelector('.active').className = " "
+            e.target.className = 'active';
+            showPage(list, e.target.textContent);
+         }
+      })
+}
+// Search Bar
+function searchBar() {
+   const header = document.querySelector('.header');
+   header.innerHTML +=
+  `<label for="search" class="student-search">
+  <span>Search by name</span>
+  <input id="search" placeholder="Search by name...">
+  <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+</label>`;
 }
 
-};
+// searchBar.addEventListener('submit' , (e) =>{
+// e.preventDefault();
 
-// linkList.addEventListener('click', () =>{
-// if(tagName === 'button'){
-// Button.className = 'active'
-// }
-// })
+// });
+
 
 // Call functions
-
+searchBar()
 showPage(data,1)
 
 addPagination(data);
 
 
-   // let liPagination = document.createElement('li');
-   // li.appendChild('liPagination')
-   // let buttonPagination = document.querySelector('button');
-   // buttonPagination.type = 'buttton'
-   // buttonPagination.innerHTML=1;
-   // li.appendChild(buttonPagination);
