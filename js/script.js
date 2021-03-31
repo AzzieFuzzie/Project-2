@@ -79,15 +79,22 @@ const addPagination = (list) => {
    linkList.innerHTML = ""
    
    for (let i = 1; i <= numOfPages; i++) {
-      let button = i
-      linkList.innerHTML += `
+      let button = i;
+       linkList.innerHTML += `
       <li>
       <button type="button">${button}</button>
       </li>`
+      button[0].className = 'active';
    }
-   const activePage = document.querySelector('button');
-   activePage.className = 'active';
+
    
+  
+   const activePage = document.querySelector('button');
+   
+   activePage.className = 'active';
+  
+
+
    linkList.addEventListener('click', (e) => {
          
       if (e.target.tagName === 'BUTTON') {
@@ -95,6 +102,7 @@ const addPagination = (list) => {
             e.target.className = 'active';
             showPage(list, e.target.textContent);
          }
+         
       })
 }
 // Search Bar
