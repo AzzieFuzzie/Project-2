@@ -26,6 +26,7 @@ endIndex = page * itemsPerPage;
 const studentList = document.querySelector('.student-list');
 studentList.innerHTML = "";
 
+// Loops through the list length and dynamicaly inserts data
 for (let i = 0; i < list.length; i++ )
 {
    let studentDetails = list[i]
@@ -80,6 +81,8 @@ const addPagination = (list) => {
 
    linkList.innerHTML = ""
    
+// Adds number of buttons dynamically according to pages
+
    for (let i = 1; i <= numOfPages; i++) {
       let button = i;
        linkList.innerHTML += 
@@ -93,10 +96,11 @@ const addPagination = (list) => {
       //   }
       //   console.log(linkList.firstElementChild)
    
+   // Adds active class to the first button when page loads
   
       const activePage = document.querySelector('.button');
        activePage.classList.add('active')
-         // console.log(activePage)
+        
       
    
   
